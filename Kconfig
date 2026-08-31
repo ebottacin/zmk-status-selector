@@ -1,0 +1,10 @@
+DT_COMPAT_ZMK_BEHAVIOR_RGB_MODE := zmk,behavior-rgb-mode
+DT_COMPAT_ZMK_BEHAVIOR_RGB_MODE_TOGGLE := zmk,behavior-rgb-mode-toggle
+
+config ZMK_BEHAVIOR_RGB_MODE
+    bool
+    default $(dt_compat_enabled,$(DT_COMPAT_ZMK_BEHAVIOR_RGB_MODE))
+
+config ZMK_BEHAVIOR_RGB_MODE_TOGGLE
+    bool
+    default $(dt_compat_enabled,$(DT_COMPAT_ZMK_BEHAVIOR_RGB_MODE_TOGGLE))
