@@ -1,0 +1,11 @@
+description: Applies the configured binding for the current selected status.
+
+compatible: "zmk,behavior-status-selector-handler"
+
+include: zero_param.yaml
+
+properties:
+  bindings:
+    type: phandle-array
+    required: true
+    description: Exactly two bindings in the order selected, unselected.

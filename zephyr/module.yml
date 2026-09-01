@@ -1,4 +1,4 @@
-name: zmk-rgb-mode
+name: zmk-status-selector
 build:
   cmake: .
   kconfig: Kconfig

@@ -1,25 +1,25 @@
-# zmk-rgb-mode
+# zmk-status-selector
 
-`zmk-rgb-mode` provides an in-memory ON/OFF RGB mode for ZMK.
+`zmk-status-selector` provides an in-memory selected/unselected state for ZMK behaviors.
 
 ## Configuration
 
 ```dts
 behaviors {
-	rgb_l0_mode: rgb_l0_mode {
-		compatible = "zmk,behavior-rgb-mode";
+	status_handler: status_handler {
+		compatible = "zmk,behavior-status-selector-handler";
 		#binding-cells = <0>;
-		bindings = <&rgb_layer0 &rgb_layer0_off>;
+		bindings = <&selected_binding &unselected_binding>;
 	};
 
-	rgb_l0_mode_toggle: rgb_l0_mode_toggle {
-		compatible = "zmk,behavior-rgb-mode-toggle";
+	status_toggle: status_toggle {
+		compatible = "zmk,behavior-status-selector-toggle";
 		#binding-cells = <0>;
-		rgb-mode = <&rgb_l0_mode>;
+		handler = <&status_handler>;
 	};
 };
 ```
 
-The mode behavior applies the first binding while enabled and the second while disabled. Its initial
-state is disabled and is not persisted across a reset or power loss. Use the toggle behavior as a
-normal key binding to invert the state; invoke the mode behavior from a layer listener to apply it.
+The handler applies the first binding while selected and the second while unselected. Its initial
+state is unselected and is not persisted across a reset or power loss. Use the toggle behavior as a
+normal key binding to invert the state; invoke the handler from a listener to apply it.

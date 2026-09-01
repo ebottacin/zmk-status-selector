@@ -1,0 +1,11 @@
+description: Toggles a status selector state.
+
+compatible: "zmk,behavior-status-selector-toggle"
+
+include: zero_param.yaml
+
+properties:
+  handler:
+    type: phandle
+    required: true
+    description: Status selector handler node controlled by this toggle.
